@@ -1,13 +1,8 @@
 import readlineSync from 'readline-sync';
 
-const getUserAnswer = (question) => {
-  console.log(`Question: ${question}`);
-  return readlineSync.question('Your answer: ');
-};
+const isEven = number => number % 2 === 0;
 
 const getCorrectAnswer = question => (isEven(question) ? 'yes' : 'no');
-
-const isEven = number => number % 2 === 0;
 
 const startGame = () => {
   console.log('Welcome to the Brain Games!\nAnswer "yes" if number even otherwise answer "no".\n');
