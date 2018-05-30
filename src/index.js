@@ -21,7 +21,7 @@ const getCorrectAnswer = num => (num % 2 === 0 ? 'yes' : 'no');
 const startGame = () => {
   const name = greetUser();
 
-  for (let i = 0; i < 3; i += 1) 
+  for (let i = 0; i < 3; i += 1) {
     const num = Math.floor(Math.random() * 100);
     const correctAnswer = getCorrectAnswer(num);
     const answer = getUserAnswer(num);
