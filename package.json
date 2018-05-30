@@ -4,7 +4,8 @@
   "description": "frontend learning project 1 by hexlet",
   "main": "index.js",
   "bin": {
-    "brain-even": "dist/bin/brain-even.js"
+    "brain-even": "dist/bin/brain-even.js",
+    "brain-calc": "dist/bin/brain-calc.js"
   },
   "files": [
     "dist"
@@ -38,6 +39,7 @@
     "eslint-plugin-import": "^2.12.0"
   },
   "dependencies": {
+    "hexlet-pairs": "^1.0.7",
     "npm": "^6.1.0",
     "readline-sync": "^1.4.9"
   }
