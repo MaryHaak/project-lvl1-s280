@@ -1,6 +1,7 @@
 import readlineSync from 'readline-sync';
 import makeCalc from './games/calc';
 import makeEven from './games/even';
+import makeGCD from './games/gcd';
 
 const makeGame = (type) => {
   switch (type) {
@@ -8,6 +9,8 @@ const makeGame = (type) => {
       return makeEven;
     case 'calc':
       return makeCalc;
+    case 'gcd':
+      return makeGCD;
     default:
       return null;
   }

@@ -9,6 +9,7 @@ const isEven = number => (number % 2 === 0);
 const getCorrectAnswer = () => question => (isEven(question) ? 'yes' : 'no');
 
 const makeEven = (action) => {
+  console.log('MAKE EVEN!!!');
   switch (action) {
     case 'getRule':
       return getRule();
