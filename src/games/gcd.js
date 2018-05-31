@@ -1,4 +1,5 @@
 import { cons, car, cdr, toString } from 'hexlet-pairs';
+import startGame from '..';
 
 const getRule = () => 'Find the greatest common divisor of given numbers.';
 
@@ -40,4 +41,4 @@ const makeGCD = (action) => {
   }
 };
 
-export default makeGCD;
+export default () => startGame(makeGCD);

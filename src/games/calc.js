@@ -1,4 +1,5 @@
 import { cons, car, cdr } from 'hexlet-pairs';
+import startGame from '..';
 
 const getRule = () => 'What is the result of the expression?';
 
@@ -44,4 +45,4 @@ const makeCalc = (action) => {
   }
 };
 
-export default makeCalc;
+export default () => startGame(makeCalc);

@@ -1,20 +1,4 @@
 import readlineSync from 'readline-sync';
-import makeCalc from './games/calc';
-import makeEven from './games/even';
-import makeGCD from './games/gcd';
-
-const makeGame = (type) => {
-  switch (type) {
-    case 'even':
-      return makeEven;
-    case 'calc':
-      return makeCalc;
-    case 'gcd':
-      return makeGCD;
-    default:
-      return null;
-  }
-};
 
 const getRule = game => game('getRule');
 
@@ -24,8 +8,7 @@ const questionToString = (game, question) => game('questionToString')(question);
 
 const getCorrectAnswer = (game, question) => game('getCorrectAnswer')(question);
 
-const startGame = (type) => {
-  const game = makeGame(type);
+const startGame = (game) => {
   const rule = getRule(game);
 
   console.log(`Welcome to the Brain Games!\n${rule}\n`);

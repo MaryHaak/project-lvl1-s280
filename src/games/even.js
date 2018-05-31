@@ -1,3 +1,5 @@
+import startGame from '..';
+
 const getRule = () => 'Answer "yes" if number even otherwise answer "no".';
 
 const getQuestion = () => Math.floor(Math.random() * 10);
@@ -9,7 +11,6 @@ const isEven = number => (number % 2 === 0);
 const getCorrectAnswer = () => question => (isEven(question) ? 'yes' : 'no');
 
 const makeEven = (action) => {
-  console.log('MAKE EVEN!!!');
   switch (action) {
     case 'getRule':
       return getRule();
@@ -24,4 +25,4 @@ const makeEven = (action) => {
   }
 };
 
-export default makeEven;
+export default () => startGame(makeEven);
