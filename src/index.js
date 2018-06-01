@@ -1,27 +1,21 @@
+import { car, cdr } from 'hexlet-pairs';
 import readlineSync from 'readline-sync';
 
-const getRule = game => game('getRule');
-
-const getQuestion = game => game('getQuestion');
-
-const questionToString = (game, question) => game('questionToString')(question);
-
-const getCorrectAnswer = (game, question) => game('getCorrectAnswer')(question);
-
 const startGame = (game) => {
-  const rule = getRule(game);
-
-  console.log(`Welcome to the Brain Games!\n${rule}\n`);
+  console.log(`Welcome to the Brain Games!\n${game('rule')}\n`);
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!\n`);
 
   const levelsNum = 3;
   for (let i = 0; i < levelsNum; i += 1) {
-    const question = getQuestion(game);
-    console.log(`Question: ${questionToString(game, question)}`);
+    const gameIter = game('iter');
+    const question = car(gameIter);
+    const correctAnswer = cdr(gameIter);
+
+    console.log(`Question: ${question}`);
     const answer = readlineSync.question('Your answer: ');
-    const correctAnswer = String(getCorrectAnswer(game, question));
-    if (answer === correctAnswer) {
+
+    if (answer === String(correctAnswer)) {
       console.log('Correct!');
     } else {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.\nLet's try again, ${name}!\n`);

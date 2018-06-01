@@ -1,16 +1,6 @@
-import { cons, car, cdr, toString } from 'hexlet-pairs';
+import { cons } from 'hexlet-pairs';
+import generateNum from '../utils';
 import startGame from '..';
-
-const getRule = () => 'Find the greatest common divisor of given numbers.';
-
-const getQuestion = () => {
-  const num1 = Math.floor(Math.random() * 100);
-  const num2 = Math.floor(Math.random() * 100);
-  toString(cons(num1, num2));
-  return cons(num1, num2);
-};
-
-const questionToString = () => question => `${car(question)} ${cdr(question)}`;
 
 const gcd = (a, b) => {
   let i = a;
@@ -20,22 +10,20 @@ const gcd = (a, b) => {
   return i;
 };
 
-const getCorrectAnswer = () => (question) => {
-  const num1 = car(question);
-  const num2 = cdr(question);
-  return gcd(num1, num2);
+const iterGCD = () => {
+  const num1 = generateNum(100);
+  const num2 = generateNum(100);
+  const question = `${num1} ${num2}`;
+  const answer = gcd(num1, num2);
+  return cons(question, answer);
 };
 
 const makeGCD = (action) => {
   switch (action) {
-    case 'getRule':
-      return getRule();
-    case 'getQuestion':
-      return getQuestion();
-    case 'questionToString':
-      return questionToString();
-    case 'getCorrectAnswer':
-      return getCorrectAnswer();
+    case 'rule':
+      return 'Find the greatest common divisor of given numbers.';
+    case 'iter':
+      return iterGCD();
     default:
       return null;
   }

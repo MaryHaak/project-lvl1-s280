@@ -1,12 +1,10 @@
+import { cons } from 'hexlet-pairs';
+import generateNum from '../utils';
 import startGame from '..';
 
-const getRule = () => 'Balance the given number.';
+const iterBalance = () => {
+  const question = generateNum(1000);
 
-const getQuestion = () => Math.floor(Math.random() * 1000);
-
-const questionToString = () => question => question;
-
-const getCorrectAnswer = () => (question) => {
   const str = String(question);
   let sum = 0;
   for (let i = 0; i < str.length; i += 1) {
@@ -24,19 +22,16 @@ const getCorrectAnswer = () => (question) => {
     }
     answer = `${String(curValue)}${answer}`;
   }
-  return answer;
+
+  return cons(question, answer);
 };
 
 const makeBalance = (action) => {
   switch (action) {
-    case 'getRule':
-      return getRule();
-    case 'getQuestion':
-      return getQuestion();
-    case 'questionToString':
-      return questionToString();
-    case 'getCorrectAnswer':
-      return getCorrectAnswer();
+    case 'rule':
+      return 'Balance the given number.';
+    case 'iter':
+      return iterBalance();
     default:
       return null;
   }

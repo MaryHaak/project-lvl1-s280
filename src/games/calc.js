@@ -1,45 +1,38 @@
-import { cons, car, cdr } from 'hexlet-pairs';
+import { cons } from 'hexlet-pairs';
+import generateNum from '../utils';
 import startGame from '..';
 
-const getRule = () => 'What is the result of the expression?';
-
-const getQuestion = () => {
-  const operand1 = Math.floor(Math.random() * 10);
-  const operand2 = Math.floor(Math.random() * 10);
+const iterCalc = () => {
+  const operand1 = generateNum();
+  const operand2 = generateNum();
   const operatorsArr = '+-*';
-  const operator = operatorsArr[Math.floor(Math.random() * 3)];
-  return cons(operator, cons(operand1, operand2));
-};
+  const operator = operatorsArr[generateNum(3)];
+  const question = `${operand1} ${operator} ${operand2}`;
 
-const questionToString = () => question => `${car(cdr(question))} ${car(question)} ${cdr(cdr(question))}`;
-
-const getCorrectAnswer = () => (question) => {
-  const operator = car(question);
-  const operand1 = car(cdr(question));
-  const operand2 = cdr(cdr(question));
-
+  let answer = null;
   switch (operator) {
     case '+':
-      return operand1 + operand2;
+      answer = operand1 + operand2;
+      break;
     case '-':
-      return operand1 - operand2;
+      answer = operand1 - operand2;
+      break;
     case '*':
-      return operand1 * operand2;
+      answer = operand1 * operand2;
+      break;
     default:
       return null;
   }
+
+  return cons(question, answer);
 };
 
 const makeCalc = (action) => {
   switch (action) {
-    case 'getRule':
-      return getRule();
-    case 'getQuestion':
-      return getQuestion();
-    case 'questionToString':
-      return questionToString();
-    case 'getCorrectAnswer':
-      return getCorrectAnswer();
+    case 'rule':
+      return 'What is the result of the expression?';
+    case 'iter':
+      return iterCalc();
     default:
       return null;
   }

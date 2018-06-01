@@ -1,25 +1,21 @@
+import { cons } from 'hexlet-pairs';
+import generateNum from '../utils';
 import startGame from '..';
-
-const getRule = () => 'Answer "yes" if number even otherwise answer "no".';
-
-const getQuestion = () => Math.floor(Math.random() * 10);
-
-const questionToString = () => question => question;
 
 const isEven = number => (number % 2 === 0);
 
-const getCorrectAnswer = () => question => (isEven(question) ? 'yes' : 'no');
+const iterEven = () => {
+  const question = generateNum();
+  const answer = (isEven(question) ? 'yes' : 'no');
+  return cons(question, answer);
+};
 
 const makeEven = (action) => {
   switch (action) {
-    case 'getRule':
-      return getRule();
-    case 'getQuestion':
-      return getQuestion();
-    case 'questionToString':
-      return questionToString();
-    case 'getCorrectAnswer':
-      return getCorrectAnswer();
+    case 'rule':
+      return 'Answer "yes" if number even otherwise answer "no".';
+    case 'iter':
+      return iterEven();
     default:
       return null;
   }
