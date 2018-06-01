@@ -10,6 +10,9 @@ start-calc:
 start-gcd:
 	npm run babel-node -- src/bin/brain-gcd.js
 
+start-bal:
+	npm run babel-node -- src/bin/brain-balance.js	
+
 publish:
 	npm publish
 
