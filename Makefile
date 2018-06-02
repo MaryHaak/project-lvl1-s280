@@ -1,5 +1,5 @@
 install:
-	npm install $(S) $(N)
+	npm install hexlet-project-lvl1-mh
 
 start-even:
 	npm run babel-node -- src/bin/brain-even.js
@@ -10,11 +10,11 @@ start-calc:
 start-gcd:
 	npm run babel-node -- src/bin/brain-gcd.js
 
-start-bal:
+start-balance:
 	npm run babel-node -- src/bin/brain-balance.js
 
-start-progr:
-	npm run babel-node -- src/bin/brain-progression.js	
+start-progression:
+	npm run babel-node -- src/bin/brain-progression.js
 
 publish:
 	npm publish
