@@ -3,11 +3,11 @@ import generateNum from '../utils';
 import startGame from '..';
 
 const isPrime = (num) => {
-  if (num <= 0) {
+  if (num <= 1) {
     return false;
   }
 
-  for (let i = 2; i < (num - 1); i += 1) {
+  for (let i = 2; i <= Math.floor(Math.sqrt(num)); i += 1) {
     if (num % i === 0) {
       return false;
     }
