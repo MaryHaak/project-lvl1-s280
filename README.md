@@ -34,8 +34,9 @@ $ make install
 
 ## Game types
 - Even check
+- Prime check
 - Calculator
-- Greatest Common Divisor 
+- Greatest Common Divisor
 - Number balance
 - Arithmetic progression
 
@@ -43,6 +44,7 @@ $ make install
 
 ```sh
 $ make start-even
+$ make start-prime
 $ make start-calc
 $ make start-gcd
 $ make start-bal

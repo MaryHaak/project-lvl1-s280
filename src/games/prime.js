@@ -2,13 +2,24 @@ import { cons } from 'hexlet-pairs';
 import generateNum from '../utils';
 import startGame from '..';
 
-const isEven = num => (num % 2 === 0);
+const isPrime = (num) => {
+  if (num <= 0) {
+    return false;
+  }
 
-const rule = 'Answer "yes" if number even otherwise answer "no".';
+  for (let i = 2; i < (num - 1); i += 1) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return true;
+};
+
+const rule = 'Is this number prime?';
 
 const generateQuestionAndAnswer = () => {
   const question = generateNum();
-  const answer = (isEven(question) ? 'yes' : 'no');
+  const answer = (isPrime(question) ? 'yes' : 'no');
   return cons(question, answer);
 };
 
