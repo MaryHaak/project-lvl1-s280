@@ -2,7 +2,9 @@ import { cons } from 'hexlet-pairs';
 import generateNum from '../utils';
 import startGame from '..';
 
-const iterCalc = () => {
+const rule = 'What is the result of the expression?';
+
+const generateQuestionAndAnswer = () => {
   const operand1 = generateNum();
   const operand2 = generateNum();
   const operatorsArr = '+-*';
@@ -27,15 +29,4 @@ const iterCalc = () => {
   return cons(question, answer);
 };
 
-const makeCalc = (action) => {
-  switch (action) {
-    case 'rule':
-      return 'What is the result of the expression?';
-    case 'iter':
-      return iterCalc();
-    default:
-      return null;
-  }
-};
-
-export default () => startGame(makeCalc);
+export default () => startGame(rule, generateQuestionAndAnswer);

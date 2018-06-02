@@ -10,7 +10,9 @@ const gcd = (a, b) => {
   return i;
 };
 
-const iterGCD = () => {
+const rule = 'Find the greatest common divisor of given numbers.';
+
+const generateQuestionAndAnswer = () => {
   const num1 = generateNum(100);
   const num2 = generateNum(100);
   const question = `${num1} ${num2}`;
@@ -18,15 +20,4 @@ const iterGCD = () => {
   return cons(question, answer);
 };
 
-const makeGCD = (action) => {
-  switch (action) {
-    case 'rule':
-      return 'Find the greatest common divisor of given numbers.';
-    case 'iter':
-      return iterGCD();
-    default:
-      return null;
-  }
-};
-
-export default () => startGame(makeGCD);
+export default () => startGame(rule, generateQuestionAndAnswer);

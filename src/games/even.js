@@ -4,21 +4,12 @@ import startGame from '..';
 
 const isEven = number => (number % 2 === 0);
 
-const iterEven = () => {
+const rule = 'Answer "yes" if number even otherwise answer "no".';
+
+const generateQuestionAndAnswer = () => {
   const question = generateNum();
   const answer = (isEven(question) ? 'yes' : 'no');
   return cons(question, answer);
 };
 
-const makeEven = (action) => {
-  switch (action) {
-    case 'rule':
-      return 'Answer "yes" if number even otherwise answer "no".';
-    case 'iter':
-      return iterEven();
-    default:
-      return null;
-  }
-};
-
-export default () => startGame(makeEven);
+export default () => startGame(rule, generateQuestionAndAnswer);

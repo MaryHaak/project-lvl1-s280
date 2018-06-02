@@ -2,17 +2,15 @@ import { cons } from 'hexlet-pairs';
 import generateNum from '../utils';
 import startGame from '..';
 
-const iterBalance = () => {
-  const question = generateNum(1000);
-
-  const str = String(question);
+const balanceNumber = (num) => {
+  const str = String(num);
   let sum = 0;
   for (let i = 0; i < str.length; i += 1) {
     sum += Number(str[i]);
   }
   const min = Math.floor(sum / str.length);
   let remainder = sum % str.length;
-  let answer = '';
+  let balancedNum = '';
 
   for (let i = 0; i < str.length; i += 1) {
     let curValue = min;
@@ -20,21 +18,19 @@ const iterBalance = () => {
       curValue += 1;
       remainder -= 1;
     }
-    answer = `${String(curValue)}${answer}`;
+    balancedNum = `${String(curValue)}${balancedNum}`;
   }
+
+  return balancedNum;
+};
+
+const rule = 'Balance the given number.';
+
+const generateQuestionAndAnswer = () => {
+  const question = generateNum(1000);
+  const answer = balanceNumber(question);
 
   return cons(question, answer);
 };
 
-const makeBalance = (action) => {
-  switch (action) {
-    case 'rule':
-      return 'Balance the given number.';
-    case 'iter':
-      return iterBalance();
-    default:
-      return null;
-  }
-};
-
-export default () => startGame(makeBalance);
+export default () => startGame(rule, generateQuestionAndAnswer);

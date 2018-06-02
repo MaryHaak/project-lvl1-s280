@@ -1,14 +1,15 @@
 import { car, cdr } from 'hexlet-pairs';
 import readlineSync from 'readline-sync';
 
-const startGame = (game) => {
-  console.log(`Welcome to the Brain Games!\n${game('rule')}\n`);
+const levelsNum = 3;
+
+const startGame = (rule, generateQuestionAndAnswer) => {
+  console.log(`Welcome to the Brain Games!\n${rule}\n`);
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!\n`);
 
-  const levelsNum = 3;
   for (let i = 0; i < levelsNum; i += 1) {
-    const gameIter = game('iter');
+    const gameIter = generateQuestionAndAnswer();
     const question = car(gameIter);
     const correctAnswer = cdr(gameIter);
 
