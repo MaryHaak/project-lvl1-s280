@@ -47,6 +47,6 @@ $ make start-even
 $ make start-prime
 $ make start-calc
 $ make start-gcd
-$ make start-bal
-$ make start-progr
+$ make start-balance
+$ make start-progression
 ```
